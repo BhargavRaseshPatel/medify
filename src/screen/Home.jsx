@@ -41,15 +41,18 @@ const Home = () => {
                     <img src="homeimage.svg" />
                 </div>
             </div>
-            <div style={{ marginTop: '-300px', backgroundColor: 'white', zIndex: '30' }}>
-                <HomeSearch />
 
-                <p style={{ textAlign: 'center', marginTop: '32px', fontSize: "20px" }}>You may be looking for</p>
+            <div style={{ background: 'white' }}>
+                <div style={{ marginTop: '-300px', background: 'white' }}>
+                    <HomeSearch />
 
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "24px", gap: '16px' }}>
-                    {lookingComponents.map((data) => (
-                        <Card image={data.image} name={data.name} bgColor={'#FAFBFE'} />
-                    ))}
+                    <p style={{ textAlign: 'center', marginTop: '32px', fontSize: "20px" }}>You may be looking for</p>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "24px", gap: '16px' }}>
+                        {lookingComponents.map((data) => (
+                            <Card image={data.image} name={data.name} bgColor={'#FAFBFE'} />
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -67,7 +70,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div style={{ height: '600px', backgroundColor: '#E8F1FF78', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: '600px', backgroundColor: '#E7F0FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <PatientCaring />
             </div>
 
@@ -76,7 +79,7 @@ const Home = () => {
             </div>
 
             <div style={{
-                height: '600px', backgroundColor: '#E7F0FF', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                height: '800px', backgroundColor: '#E7F0FF', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 paddingLeft: '128px', paddingRight: '128px', padding: 'auto'
             }}>
                 <State />

@@ -2,8 +2,7 @@ import React from 'react'
 
 const StateCard = ({ bgColor, src, state, name }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems : 'center', height: '300px', width: '240px', backgroundColor : 'white', borderRadius : '12px' }}>
-
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems : 'center', height: '300px', width: '240px', backgroundColor : 'white', borderRadius : '12px', margin :'32px', marginLeft: '0px' }}>
             <div style={{ width: '240px', height: '220px', display : 'flex', justifyContent : 'center', flexDirection :'column', alignItems : 'center', gap : '16px' }}>
                 <div style={{ width: '100px', height: '100px', backgroundColor: bgColor, borderRadius: '50%', display: 'flex' , alignItems: 'center', justifyContent :'center' }}>
                     <img src={src} />
