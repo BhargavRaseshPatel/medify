@@ -3,7 +3,7 @@ import Button from '../ui/Button'
 
 const AppDownload = () => {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '450px', backgroundColor: '#E7F0FF', paddingTop: '48px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '450px', backgroundColor: '#E7F0FF', paddingTop: '48px', overflow :'hidden' }}>
 
       <div>
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', marginRight: '200px', zIndex: 2 }}>

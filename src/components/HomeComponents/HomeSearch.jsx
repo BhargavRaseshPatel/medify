@@ -1,22 +1,19 @@
 import { FaSearch } from "react-icons/fa";
 import Button from "../ui/Button";
+import InputField from "../ui/InputField";
 
 const HomeSearch = () => {
-return (
-    <div style={{background : 'white', borderRadius : '16px', display: 'grid', gridTemplateColumns : '3fr 2fr 1fr', zIndex :'2'}}>
-            <div style={{border : '1px solid gray', alignItems : 'center', display : 'flex', padding : '10px'}}>
-                    <FaSearch />
-                    <input placeholder="State" style={{border : '0px', marginLeft : '8px'}}/>
-            </div>
-            <div style={{border : '1px solid gray', alignItems : 'center', display : 'flex', padding : '10px'}}>
-                    <FaSearch />
-                    <input placeholder="State" style={{border : '0px', marginLeft : '8px'}}/>
-            </div>
-            <div>
-                <Button name={'Search'} />
-            </div>
-    </div>
-)
+        return (
+                <div style={{ background: 'white', borderRadius: '16px', display: 'flex', padding: '48px', justifyContent :'space-between', zIndex: '2', paddingTop :'0px' }}>
+                        <div style={{display : 'flex',width : '100%', justifyContent: 'space-around' }}>
+                                <InputField icon={'Search'} placeholder={'State'} width={'285px'} />
+                                <InputField width={'285px'} icon={'Search'} placeholder={'City'} />
+                        </div>
+                        <div>
+                                <Button name={'Search'} />
+                        </div>
+                </div>
+        )
 }
 
 export default HomeSearch

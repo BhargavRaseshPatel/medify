@@ -25,8 +25,8 @@ const Home = () => {
 
     return (
         <div>
-            <div style={{ display: 'flex' }}>
-                <div style={{ width: '100%' }}>
+            <div style={{ display: 'flex', padding: '128px', backgroundColor:'#E7F0FF' }}>
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                     <p style={{ fontSize: '30px', marginBottom: '16px' }}>Skip the travel! Find Online</p>
                     <p style={{ fontWeight: 'bolder', fontSize: '55px', marginBottom: '16px' }}>
                         Medical <span style={{ color: '#2AA8FF' }}>Centers</span>
@@ -37,16 +37,17 @@ const Home = () => {
 
                     <Button name={'Find Centers'} />
                 </div>
-                <div style={{ width: '100%' }}>
+                <div style={{ width: '100%', marginTop: '-100px' }}>
                     <img src="homeimage.svg" />
                 </div>
             </div>
 
-            <div style={{ background: 'white' }}>
-                <div style={{ marginTop: '-300px', background: 'white' }}>
+            <div style={{display : 'flex', justifyContent : 'center', alignItems:'center'}}>
+                <div style={{ marginTop: '-400px', width: '1170px',height:'400px', display:'flex', justifyContent:'center', 
+                    flexDirection:'column', backgroundColor: 'white', maxWidth: 'none',  zIndex: 2, borderRadius: "15px", }}>
                     <HomeSearch />
 
-                    <p style={{ textAlign: 'center', marginTop: '32px', fontSize: "20px" }}>You may be looking for</p>
+                    <p style={{ textAlign: 'center', fontSize: "20px" }}>You may be looking for</p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "24px", gap: '16px' }}>
                         {lookingComponents.map((data) => (
