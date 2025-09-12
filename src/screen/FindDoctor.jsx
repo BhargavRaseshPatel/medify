@@ -45,17 +45,17 @@ const FindDoctor = () => {
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection : 'column', justifyContent: 'center', alignItems :"center" }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: "center", backgroundColor: '#E7F0FF' }}>
 
 
             <div style={{ width: '1166px', display: 'flex', gap: '24px', border: '1px solid #F0F0F0', borderRadius: '15px', justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
-                    <div style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems :'center' }}>
+                    <div style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <div size={{ width: "18px", height: '18px', padding: '4px' }}>
-                            <IoLocationOutline style={{fontSize : '32px'}} />
+                            <IoLocationOutline style={{ fontSize: '32px' }} />
                         </div>
 
-                        <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }}>
+                        <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }} id='state'>
                             <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleState}>
                                 {states.map((data, index) => (
                                     <option key={index}>{data}</option>
@@ -65,14 +65,14 @@ const FindDoctor = () => {
                     </div>
                 </div>
 
-                <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
-                    <div style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems :'center'  }}>
+                <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }} id='city'>
+                    <div style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <div size={{ width: "18px", height: '18px', padding: '4px' }}>
-                            <IoLocationOutline style={{fontSize : '32px'}} />
+                            <IoLocationOutline style={{ fontSize: '32px' }} />
                         </div>
 
                         <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }}>
-                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7'}} onChange={handleCities}>
+                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleCities}>
                                 {cities.map((data, index) => (
                                     <option key={index}>{data}</option>
                                 ))}
@@ -81,13 +81,15 @@ const FindDoctor = () => {
                     </div>
                 </div>
 
-                <Button name={'Search'} onClick={searchMedicalCenters}/>
+                <Button id={'searchBtn'} name={'Search'} onClick={searchMedicalCenters} />
 
+            </div >
+
+            <div style={{display : 'flex' , flexDirection : 'column', gap : '24px'}}>
+                {medicalCenter && medicalCenter.map((data, index) => (
+                    (<MedicalCenterCard key={index} data={data} />)
+                ))}
             </div>
-
-            {medicalCenter && medicalCenter.map((data) => (
-                (<MedicalCenterCard data={data}/>)
-            )) }
         </div>
     )
 }
