@@ -50,8 +50,8 @@ const Home = () => {
                     <p style={{ textAlign: 'center', fontSize: "20px" }}>You may be looking for</p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "24px", gap: '16px' }}>
-                        {lookingComponents.map((data) => (
-                            <Card image={data.image} name={data.name} bgColor={'#FAFBFE'} />
+                        {lookingComponents.map((data, key) => (
+                            <Card key={key} image={data.image} name={data.name} bgColor={'#FAFBFE'} />
                         ))}
                     </div>
                 </div>
@@ -61,8 +61,8 @@ const Home = () => {
                 <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px' }}>Find By Specialisation</p>
 
                 <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: '1fr 1fr 1fr 1fr' }}>
-                    {specialComponents.map((data) => (
-                        <Card image={data.image} name={data.name} />
+                    {specialComponents.map((data, index) => (
+                        <Card image={data.image} key={index} name={data.name} />
                     ))}
                 </div>
 
