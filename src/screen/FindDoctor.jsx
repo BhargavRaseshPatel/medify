@@ -54,7 +54,7 @@ const FindDoctor = () => {
                         </div>
 
                         <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }} id='state'>
-                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleState}>
+                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleState} id='state'>
                                 {states.map((data, index) => (
                                     <option key={index}>{data}</option>
                                 ))}
@@ -70,7 +70,7 @@ const FindDoctor = () => {
                         </div>
 
                         <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }}>
-                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleCities}>
+                            <select style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} id='city' onChange={handleCities}>
                                 {cities.map((data, index) => (
                                     <option key={index}>{data}</option>
                                 ))}
