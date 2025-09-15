@@ -6,8 +6,8 @@ const HomeSearch = () => {
         return (
                 <div style={{ background: 'white', borderRadius: '16px', display: 'flex', padding: '48px', justifyContent :'space-between', zIndex: '2', paddingTop :'0px' }}>
                         <div style={{display : 'flex',width : '100%', justifyContent: 'space-around' }}>
-                                <InputField icon={'Search'} placeholder={'State'} width={'285px'} />
-                                <InputField width={'285px'} icon={'Search'} placeholder={'City'} />
+                                <InputField icon={'Search'} placeholder={'State'} width={'285px'} id={'state'}/>
+                                <InputField width={'285px'} icon={'Search'} placeholder={'City'} id={'city'}/>
                         </div>
                         <div>
                                 <Button name={'Search'} />
