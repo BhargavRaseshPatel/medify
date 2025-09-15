@@ -11,6 +11,7 @@ import AppDownload from './components/HomeComponents/AppDownload.jsx'
 import Footer from './components/HomeComponents/Footer.jsx'
 import { Route, Routes } from 'react-router-dom'
 import FindDoctor from './screen/FindDoctor.jsx'
+import Booking from './screen/Booking.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/find-doctor' element={<FindDoctor />} />
+        <Route path='/my-booking' element={<Booking />} />
       </Routes>
       {/* <Home /> */}
       <AskedQuestion />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IoLocationOutline } from "react-icons/io5";
 import Button from '../components/ui/Button';
 import MedicalCenterCard from '../components/MedicalCenterCard';
+import { useSearchParams } from 'react-router-dom';
 
 const FindDoctor = () => {
     const [states, setStates] = useState([])
@@ -9,14 +10,23 @@ const FindDoctor = () => {
     const [selectedState, setSelectedState] = useState('')
     const [selectedCities, setSelectedCities] = useState('')
     const [medicalCenter, setMedicalCenter] = useState([])
+    const [searchParams] = useSearchParams()
 
     useEffect(() => {
+        const state = searchParams.get('state')
+        const city = searchParams.get('city')
+
         const fetchStates = async () => {
             const states = await (await fetch('https://meddata-backend.onrender.com/states')).json();
             setStates(states);
         };
         fetchStates();
-    })
+        if(state && city) {
+            setSelectedState(state);
+            setSelectedCities(city)
+            findMedicalCenters(state, city)
+        }
+    }, [searchParams])
 
     const handleState = (event) => {
         const fetchCities = async () => {
@@ -29,6 +39,19 @@ const FindDoctor = () => {
 
     const handleCities = (event) => {
         setSelectedCities(event.target.value)
+    }
+
+    const findMedicalCenters = (state, city) => {
+        const fetchMedicalCenters = async () => {
+            try {
+                const response = await fetch(`https://meddata-backend.onrender.com/data?state=${state}&city=${city}`);
+                const data = await response.json();
+                setMedicalCenter(data);
+            } catch (error) {
+                console.error("Error fetching medical centers:", error);
+            }
+        };
+        fetchMedicalCenters();
     }
 
     const searchMedicalCenters = () => {
@@ -85,7 +108,7 @@ const FindDoctor = () => {
 
             <div>
                 <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'flex-start', gap: '24px', marginTop: '48px' }}>
-                    {medicalCenter.length > 0 && <p style={{ fontSize: '24px' }}>{medicalCenter?.length} medical centers available in {selectedCities.charAt(0).toUpperCase() + selectedCities.slice(1).toLowerCase()}</p>}
+                    {medicalCenter.length > 0 && <h1 style={{ fontSize: '24px' }}>{medicalCenter?.length} medical centers available in {selectedCities.toLowerCase()}</h1>}
 
                     <div style={{ display: 'flex', gap: '16px' }}>
                         {medicalCenter.length > 0 &&
