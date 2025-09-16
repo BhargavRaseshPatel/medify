@@ -108,7 +108,7 @@ const FindDoctor = () => {
 
             <div>
                 <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'flex-start', gap: '24px', marginTop: '48px' }}>
-                    {medicalCenter.length > 0 && <h1 style={{ fontSize: '24px' }}>{medicalCenter?.length} medical centers available in {selectedCities.charAt(0).toUpperCase() + selectedCities.slice(1).toLowerCase()}</h1>}
+                    {medicalCenter.length > 0 && <h1 style={{ fontSize: '24px' }}>{medicalCenter?.length} medical centers available in {selectedCities.toLowerCase()}</h1>}
 
                     <div style={{ display: 'flex', gap: '16px' }}>
                         {medicalCenter.length > 0 &&
