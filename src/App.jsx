@@ -21,7 +21,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/find-doctor' element={<FindDoctor />} />
+        <Route path='/data' element={<FindDoctor />} />
       </Routes>
       {/* <Home /> */}
       <AskedQuestion />
