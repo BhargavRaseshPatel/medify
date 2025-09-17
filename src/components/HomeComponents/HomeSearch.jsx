@@ -120,7 +120,7 @@ const HomeSearch = () => {
                         </div> */}
 
                         <Select
-                            id="state"
+                            id="city"
                             value={selectedCities}
                             onChange={handleCities}
                             displayEmpty
