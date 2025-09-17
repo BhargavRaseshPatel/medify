@@ -54,10 +54,10 @@ const HomeSearch = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        
-            e.preventDefault();
-            navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
-        
+
+        e.preventDefault();
+        navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
+
     }
     return (
         <form onSubmit={(e) => {
@@ -80,7 +80,7 @@ const HomeSearch = () => {
                             </select>d
                         </div> */}
 
-                        <Select
+                        {/* <Select
                             id="state"
                             value={selectedState}
                             onChange={handleState}
@@ -97,9 +97,32 @@ const HomeSearch = () => {
                             {states.map((state, index) => (
                                 <MenuItem key={index} value={state}>{state}</MenuItem>
                             ))}
+                        </Select> */}
+
+                        <Select
+                            id="state"
+                            value={selectedState}
+                            onChange={handleState}
+                            displayEmpty
+                        >
+                            <MenuItem disabled value="">Select State</MenuItem>
+                            {states.map((state, index) => (
+                                <MenuItem key={index} value={state}>{state}</MenuItem>
+                            ))}
                         </Select>
 
-                        
+                        <Select
+                            id="city"
+                            value={selectedCities}
+                            onChange={handleCities}
+                            displayEmpty
+                        >
+                            <MenuItem disabled value="">Select City</MenuItem>
+                            {cities.map((city, index) => (
+                                <MenuItem key={index} value={city}>{city}</MenuItem>
+                            ))}
+                        </Select>
+
 
                         {/* <Select
                             id="state"
@@ -163,7 +186,7 @@ const HomeSearch = () => {
                             ))}
                         </Select> */}
 
-                        <Select
+                        {/* <Select
                             id="city"
                             value={selectedCities}
                             onChange={handleCities}
@@ -180,7 +203,7 @@ const HomeSearch = () => {
                             {cities.map((city, index) => (
                                 <MenuItem key={index} value={city}>{city}</MenuItem>
                             ))}
-                        </Select>
+                        </Select> */}
                     </div>
                 </div>
 
