@@ -13,8 +13,8 @@ const FindDoctor = () => {
     const [searchParams] = useSearchParams()
 
     useEffect(() => {
-        const state = searchParams.get('home-state')
-        const city = searchParams.get('home-city')
+        const state = searchParams.get('state')
+        const city = searchParams.get('city')
 
         const fetchStates = async () => {
             const states = await (await fetch('https://meddata-backend.onrender.com/states')).json();
