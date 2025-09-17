@@ -4,6 +4,7 @@ import InputField from "../ui/InputField";
 import { useEffect, useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { InputAdornment, MenuItem, Select } from "@mui/material";
+import { useNavigate, useRoutes } from "react-router-dom";
 
 
 const HomeSearch = () => {
@@ -13,6 +14,7 @@ const HomeSearch = () => {
     const [selectedState, setSelectedState] = useState('')
     const [selectedCities, setSelectedCities] = useState('')
     const [medicalCenter, setMedicalCenter] = useState([])
+    // const navigate = useNavigate()
 
     useEffect(() => {
         const fetchStates = async () => {
@@ -45,10 +47,23 @@ const HomeSearch = () => {
                 console.error("Error fetching medical centers:", error);
             }
         };
+        // navigate(`find-doctor?state=${selectedState},city=${selectedCities}`)
+
         fetchMedicalCenters();
     }
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        
+            e.preventDefault();
+            navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
+        
+    }
     return (
-        <form action="/find-doctor">
+        <form onSubmit={(e) => {
+
+            handleSubmit(e);
+        }}>
             <div style={{ width: '1166px', display: 'flex', gap: '24px', border: '1px solid #F0F0F0', borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
