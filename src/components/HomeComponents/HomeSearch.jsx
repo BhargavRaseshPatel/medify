@@ -47,7 +47,7 @@ const HomeSearch = () => {
         fetchMedicalCenters();
     }
     return (
-        <form action="/data">
+        <form action="/find-doctor">
             <div style={{ width: '1166px', display: 'flex', gap: '24px', border: '1px solid #F0F0F0', borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
