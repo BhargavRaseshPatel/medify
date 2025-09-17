@@ -86,7 +86,7 @@ const HomeSearch = () => {
                             onChange={handleState}
                             displayEmpty
                             sx={{ minWidth: 200 }}
-                            name="state"
+                            // name="state"
                             startAdornment={
                                 <InputAdornment position="start">
                                     <IoLocationOutline style={{ fontSize: "20px" }} />
@@ -169,7 +169,7 @@ const HomeSearch = () => {
                             onChange={handleCities}
                             displayEmpty
                             sx={{ minWidth: 200 }}
-                            name="city"
+                            // name="city"
                             startAdornment={
                                 <InputAdornment position="start">
                                     <IoLocationOutline style={{ fontSize: "20px" }} />
