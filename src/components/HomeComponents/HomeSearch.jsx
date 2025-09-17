@@ -54,10 +54,10 @@ const HomeSearch = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-
-        e.preventDefault();
-        navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
-
+        
+            e.preventDefault();
+            navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
+        
     }
     return (
         <form onSubmit={(e) => {
@@ -85,6 +85,13 @@ const HomeSearch = () => {
                             value={selectedState}
                             onChange={handleState}
                             displayEmpty
+                            sx={{ minWidth: 200 }}
+                            name="state"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <IoLocationOutline style={{ fontSize: "20px" }} />
+                                </InputAdornment>
+                            }
                         >
                             <MenuItem disabled value="">Select State</MenuItem>
                             {states.map((state, index) => (
@@ -92,22 +99,35 @@ const HomeSearch = () => {
                             ))}
                         </Select>
 
-                        <Select
-                            id="city"
-                            value={selectedCities}
-                            onChange={handleCities}
+                        
+
+                        {/* <Select
+                            id="state"
+                            value={selectedState}
+                            onChange={handleState}
                             displayEmpty
+                            sx={{ minWidth: 200 }}
+                            name="state"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <IoLocationOutline style={{ fontSize: "20px" }} />
+                                </InputAdornment>
+                            }
                         >
-                            <MenuItem disabled value="">Select City</MenuItem>
-                            {cities.map((city, index) => (
-                                <MenuItem key={index} value={city}>{city}</MenuItem>
+                            <MenuItem disabled value="">
+                                Select State
+                            </MenuItem>
+                            {states.map((state, index) => (
+                                <MenuItem key={index} value={state}>
+                                    {state}
+                                </MenuItem>
                             ))}
-                        </Select>
+                        </Select> */}
                     </div>
                 </div>
 
-                {/* <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }} id='city'>
-                    <div style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}> */}
+                <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }} id='city'>
+                    <div style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
                             <IoLocationOutline style={{ fontSize: '32px' }} />
                         </div>
@@ -121,7 +141,7 @@ const HomeSearch = () => {
                         </div> */}
 
                         {/* <Select
-                            id="city"
+                            id="state"
                             value={selectedCities}
                             onChange={handleCities}
                             displayEmpty
@@ -141,9 +161,28 @@ const HomeSearch = () => {
                                     {state}
                                 </MenuItem>
                             ))}
+                        </Select> */}
+
+                        <Select
+                            id="city"
+                            value={selectedCities}
+                            onChange={handleCities}
+                            displayEmpty
+                            sx={{ minWidth: 200 }}
+                            name="city"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <IoLocationOutline style={{ fontSize: "20px" }} />
+                                </InputAdornment>
+                            }
+                        >
+                            <MenuItem disabled value="">Select City</MenuItem>
+                            {cities.map((city, index) => (
+                                <MenuItem key={index} value={city}>{city}</MenuItem>
+                            ))}
                         </Select>
                     </div>
-                </div> */}
+                </div>
 
                 <Button id={'searchBtn'} name={'Search'} method="post" />
 
