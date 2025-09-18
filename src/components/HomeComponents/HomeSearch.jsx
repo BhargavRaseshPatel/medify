@@ -66,7 +66,7 @@ const HomeSearch = () => {
             <div style={{ width: '1166px', display: 'flex', gap: '24px', border: '1px solid #F0F0F0', borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
-                    <div style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', id : 'state' }}>
+                    <div id="state" style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
                             <IoLocationOutline style={{ fontSize: '32px' }} />
                         </div> */}
@@ -149,7 +149,7 @@ const HomeSearch = () => {
                 </div>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }} id='city'>
-                    <div style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', id :'city' }}>
+                    <div id="city" style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
                             <IoLocationOutline style={{ fontSize: '32px' }} />
                         </div>
