@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SelectTime = () => {
+const SelectTime = ({ selectedTime, time }) => {
     const availableTime = [
         {
             gretting: 'Morning',
@@ -15,20 +15,25 @@ const SelectTime = () => {
         }
     ]
     return (
-        <div style={{ width: '767px', display: 'flex', flexDirection : 'column', justifyContent: 'center' }}>
+        <div style={{ width: '767px', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100px' }}>
             {availableTime.map((data, index) => (
-                <div style={{display : 'flex'}}>
+                <div style={{ display: 'flex', minHeight: '73px', display: 'flex', alignItems: 'center' }} key={index}>
                     <p style={{ width: '140px', display: 'flex', justifyContent: 'center' }}>{data.gretting}</p>
-                    <div style={{ width: '624px', display : 'flex' }}>
+                    <div style={{ width: '624px', display: 'flex', }}>
                         {
-                            data.times.map((time, index) => (
-                                <p style={{width : '84px', height : '32px'}}>{time}</p>
+                            data.times.map((Itime, index) => (
+                                <div onClick={() => selectedTime(Itime)} key={index} style={{
+                                    width: '84px', height: '32px', background: `${time == Itime ? '#2AA7FF' : 'white'}`, color: `${time == Itime ? 'white' : '#2AA7FF'}`, border: `1px solid ${time == Itime ? 'white' : '#2AA7FF'}`,
+                                    display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '24px', borderRadius: '4px',
+                                }}>
+                                    <p style={{ fontSize: '14px' }} >{Itime}</p></div>
                             ))
                         }
                     </div>
+                    <hr />
                 </div>
-
             ))
+
             }
         </div>
     )

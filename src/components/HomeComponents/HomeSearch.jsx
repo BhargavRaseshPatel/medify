@@ -52,7 +52,6 @@ const HomeSearch = () => {
         fetchMedicalCenters();
     }
     const navigate = useNavigate();
-
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -99,7 +98,7 @@ const HomeSearch = () => {
                             ))}
                         </Select> */}
 
-                        <Select
+                        {/* <Select
                             id="state"
                             value={selectedState}
                             onChange={handleState}
@@ -121,10 +120,10 @@ const HomeSearch = () => {
                             {cities.map((city, index) => (
                                 <MenuItem key={index} value={city}>{city}</MenuItem>
                             ))}
-                        </Select>
+                        </Select> */}
 
 
-                        {/* <Select
+                        <Select
                             id="state"
                             value={selectedState}
                             onChange={handleState}
@@ -145,7 +144,7 @@ const HomeSearch = () => {
                                     {state}
                                 </MenuItem>
                             ))}
-                        </Select> */}
+                        </Select>
                     </div>
                 </div>
 
@@ -186,13 +185,13 @@ const HomeSearch = () => {
                             ))}
                         </Select> */}
 
-                        {/* <Select
+                        <Select
                             id="city"
                             value={selectedCities}
                             onChange={handleCities}
                             displayEmpty
                             sx={{ minWidth: 200 }}
-                            // name="city"
+                            name="city"
                             startAdornment={
                                 <InputAdornment position="start">
                                     <IoLocationOutline style={{ fontSize: "20px" }} />
@@ -203,7 +202,7 @@ const HomeSearch = () => {
                             {cities.map((city, index) => (
                                 <MenuItem key={index} value={city}>{city}</MenuItem>
                             ))}
-                        </Select> */}
+                        </Select>
                     </div>
                 </div>
 

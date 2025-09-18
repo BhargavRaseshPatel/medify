@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from './ui/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
+    const navigate = useNavigate()
     return (
         <div style={{ width: '100%', display: 'flex' , justifyContent : 'center'}}>
 
@@ -20,7 +21,7 @@ const Header = () => {
                     <p>Software for Provider</p>
                     <p>Facilities</p>
 
-                    <Button name={'My Bookings'} />
+                    <Button name={'My Bookings'} onClick={() => navigate('/my-booking')}/>
                 </div>
             </div>
         </div>

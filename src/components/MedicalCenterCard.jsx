@@ -3,9 +3,21 @@ import Button from './ui/Button'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import SelectTime from './SelectTime';
+import { Navigation } from 'swiper/modules';
+import NavigationButton from './NavigationButton';
+import TabList from '@mui/lab/TabList';
+import { Box, Tab } from '@mui/material';
+import { TabContext, TabPanel } from '@mui/lab';
 
 const MedicalCenterCard = ({ data }) => {
     const [bookVisit, setBookVisit] = useState(false)
+    const [tabValue, setTabValue] = React.useState("0");
+    const [selectedDate, setSelectedDate] = useState(new Date().toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "long",
+        year : 'numeric'
+    }));
+    const [selectedTime, setSelectedTime] = useState('')
 
     // Generate next 7 days including today
     const next7Days = Array.from({ length: 7 }, (_, i) => {
@@ -17,6 +29,31 @@ const MedicalCenterCard = ({ data }) => {
     useEffect(() => {
         console.log(data)
     }, [])
+
+    const handleChange = (event, newValue) => {
+        const date = new Date();
+        const newDate = new Date(date.setDate(date.getDate() + parseInt(newValue)));
+        setTabValue(newValue);
+        setSelectedDate(newDate.toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "long",
+            year : 'numeric'
+        }));
+    };
+
+    useEffect(() => {
+        console.log(selectedDate)
+    }, [selectedDate])
+
+    const localStorageStore = () => {
+        const localStorageData = Array.isArray(JSON.parse(localStorage.getItem('booking'))) ? JSON.parse(localStorage.getItem('booking')) : [];
+        data.Date = selectedDate;
+        data.Time = selectedTime;
+
+        localStorageData.push(data);
+        localStorage.setItem('booking', JSON.stringify(localStorageData));
+    }
+
 
     return (
         <div style={{ width: '785px', display: 'flex', backgroundColor: 'white', borderRadius: '15px', flexDirection: 'column' }}>
@@ -56,29 +93,54 @@ const MedicalCenterCard = ({ data }) => {
                 </div>
             </div>
 
-            {bookVisit && <div style={{}}>
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={3}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+            {bookVisit && (
+                <div
+                    style={{
+                        display: "flex",
+                        maxWidth: "100%",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
                 >
-                    {next7Days.map((date, index) => (
-                        <SwiperSlide key={index}>
-                            {index === 0
-                                ? "Today"
-                                : index === 1
-                                    ? "Tomorrow"
-                                    : date.toLocaleDateString("en-GB", {
-                                        weekday: "short",
-                                        day: "2-digit",
-                                        month: "short",
-                                    })}
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                <SelectTime />
-            </div>}
+                    <TabContext value={tabValue}>
+                        <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
+                            <TabList
+                                onChange={handleChange}
+                                aria-label="scrollable tabs"
+                                variant="scrollable"
+                                scrollButtons="auto"
+                                allowScrollButtonsMobile
+                            >
+                                {next7Days.map((date, index) => {
+                                    const label =
+                                        index === 0
+                                            ? "Today"
+                                            : index === 1
+                                                ? "Tomorrow"
+                                                : date.toLocaleDateString("en-GB", {
+                                                    weekday: "short",
+                                                    day: "2-digit",
+                                                    month: "short",
+                                                });
+                                    return <Tab key={index} label={label} value={String(index)} />;
+                                })}
+                            </TabList>
+                        </Box>
+
+                        {next7Days.map((date, index) => (
+                            <TabPanel key={index} value={String(index)}>
+                                <div style={{ height: '150px', marginTop: '32px' }}>
+
+                                    <SelectTime selectedTime={(time) => {setSelectedTime(time); localStorageStore()}} time={selectedTime} />
+                                </div>
+                            </TabPanel>
+                        ))}
+                    </TabContext>
+
+                </div>
+            )}
+
         </div>
 
     )
