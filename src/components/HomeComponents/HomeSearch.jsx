@@ -148,7 +148,7 @@ const HomeSearch = () => {
                     </div>
                 </div>
 
-                <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }} id='city'>
+                <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
                     <div id="city" style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
                             <IoLocationOutline style={{ fontSize: '32px' }} />
