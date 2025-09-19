@@ -37,7 +37,7 @@ const Booking = () => {
                     <div style={{ height: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '24px', gap: '18px', marginTop: '24px' }}>
                       <h3 style={{ color: '#14BEF0', fontSize: '20px', whiteSpace: 'nowrap' }}>{data['Hospital Name'].toLowerCase()
                         .split(' ')
-                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .map(word => word.toLowerCase())
                         .join(' ')}</h3>
                       <div>
                         <p style={{ fontWeight: 'bolder' }}>{data['State']}, {data['City'].charAt(0) + data['City'].slice(1).toLowerCase()}</p>
