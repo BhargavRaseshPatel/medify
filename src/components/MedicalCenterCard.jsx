@@ -39,8 +39,8 @@ const MedicalCenterCard = ({ data }) => {
 
     const localStorageStore = () => {
         const localStorageData = Array.isArray(JSON.parse(localStorage.getItem('bookings'))) ? JSON.parse(localStorage.getItem('bookings')) : [];
-        data.Date = selectedDate;
-        data.Time = selectedTime;
+        data.bookingDate = selectedDate;
+        data.bookingTime = selectedTime;
 
         localStorageData.push(data);
         localStorage.setItem('bookings', JSON.stringify(localStorageData));
