@@ -6,6 +6,10 @@ const Header = () => {
     const navigate = useNavigate()
     const currentUrl = window.location.pathname.split('/')[1];
     console.log('Current URL:', currentUrl);
+
+    const handleBooking = () => {
+        navigate('/my-bookings')
+    }
     return (
         <div style={{ width: '100%', display: 'flex' , justifyContent : 'center'}}>
 
@@ -24,7 +28,7 @@ const Header = () => {
                     <p>Software for Provider</p>
                     <p>Facilities</p>
 
-                    <Button name={'My Bookings'} onClick={() => navigate('/my-booking')}/>
+                    <Button name={'My Bookings'} onClick={handleBooking}/>
                 </div>
             </div>
         </div>
