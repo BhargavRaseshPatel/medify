@@ -26,7 +26,7 @@ const Booking = () => {
 
         <div style={{ display: 'flex', gap: '24px', justifyContent : 'center', marginTop : "78px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {bookingData.map((data) => (
+            {bookingData?.map((data) => (
               <div style={{ width: '785px', display: 'flex', backgroundColor: 'white', borderRadius: '15px', flexDirection: 'column' }}>
                 <div style={{ display: 'flex' }}>
                   <div style={{ width: '487px', minWidth: '487px', height: '220px', display: 'flex', alignItems: 'center', marginLeft: "24px" }}>
