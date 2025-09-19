@@ -87,7 +87,7 @@ const MedicalCenterCard = ({ data }) => {
                     <div style={{ position: 'absolute', bottom: '0px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <p style={{ color: "#01A400", textAlign: 'center' }}>Available Today</p>
                         <div style={{ marginBottom: '16px', marginTop: '8px' }}>
-                            <Button name={'Book FREE Center Visit'} onClick={() => setBookVisit(!bookVisit)} />
+                            <Button name={ bookVisit ? 'Hide Booking Center' :'Book FREE Center Visit'} width={'100%'} onClick={() => setBookVisit(!bookVisit)} />
                         </div>
                     </div>
                 </div>

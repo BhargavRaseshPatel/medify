@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { InputAdornment, MenuItem, Select } from "@mui/material";
 import { useNavigate, useRoutes } from "react-router-dom";
+import { IoSearchOutline } from "react-icons/io5";
 
 
 const HomeSearch = () => {
@@ -63,21 +64,11 @@ const HomeSearch = () => {
 
             handleSubmit(e);
         }}>
-            <div style={{ width: '1166px', display: 'flex', gap: '24px', border: '1px solid #F0F0F0', borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
+            <div style={{ width: '1166px', display: 'flex', gap: '24px',  borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
                     <div id="state" style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                        {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
-                            <IoLocationOutline style={{ fontSize: '32px' }} />
-                        </div> */}
-
-                        {/* <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }} id='state'>
-                            <select name="home-state" style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} onChange={handleState} id='state'>
-                                {states.map((data, index) => (
-                                    <option key={index}>{data}</option>
-                                ))}
-                            </select>d
-                        </div> */}
+                       
 
                         {/* <Select
                             id="state"
@@ -122,17 +113,15 @@ const HomeSearch = () => {
                             ))}
                         </Select> */}
 
-
                         <Select
-                            
                             value={selectedState}
                             onChange={handleState}
                             displayEmpty
-                            sx={{ minWidth: 200 }}
+                            sx={{ minWidth: '100%' }}
                             name="state"
                             startAdornment={
                                 <InputAdornment position="start">
-                                    <IoLocationOutline style={{ fontSize: "20px" }} />
+                                    <IoSearchOutline style={{ fontSize: "20px" }} />
                                 </InputAdornment>
                             }
                         >
@@ -150,51 +139,16 @@ const HomeSearch = () => {
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
                     <div id="city" style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                        {/* <div size={{ width: "18px", height: '18px', padding: '4px' }}>
-                            <IoLocationOutline style={{ fontSize: '32px' }} />
-                        </div>
-
-                        <div style={{ width: '100%', display: 'flex', alignItems: 'center', marginLeft: '8px' }}>
-                            <select name="home-city" style={{ width: "100%", border: '0px', fontSize: '14px', color: '#ABB6C7' }} id='city' onChange={handleCities}>
-                                {cities.map((data, index) => (
-                                    <option key={index}>{data}</option>
-                                ))}
-                            </select>
-                        </div> */}
-
-                        {/* <Select
-                            id="state"
-                            value={selectedCities}
-                            onChange={handleCities}
-                            displayEmpty
-                            sx={{ minWidth: 200 }}
-                            name="city"
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <IoLocationOutline style={{ fontSize: "20px" }} />
-                                </InputAdornment>
-                            }
-                        >
-                            <MenuItem disabled value="">
-                                Select City
-                            </MenuItem>
-                            {cities.map((state, index) => (
-                                <MenuItem key={index} value={state}>
-                                    {state}
-                                </MenuItem>
-                            ))}
-                        </Select> */}
 
                         <Select
-                            
                             value={selectedCities}
                             onChange={handleCities}
                             displayEmpty
-                            sx={{ minWidth: 200 }}
+                            sx={{  minWidth: '100%' }}
                             // name="city"
                             startAdornment={
                                 <InputAdornment position="start">
-                                    <IoLocationOutline style={{ fontSize: "20px" }} />
+                                   <IoSearchOutline style={{ fontSize: "20px" }} />
                                 </InputAdornment>
                             }
                         >
