@@ -4,7 +4,7 @@ const LatestNews = () => {
   return (
     <div>
         <p style={{color : '#2AA7FF', fontSize : '16px', textAlign :'center'}}>Blog & News</p>
-        <p style={{fontSize : '48px', textAlign : 'center', marginBottom : '25px'}}>Read Our Latest News</p>
+        <p style={{fontSize : '48px', textAlign : 'center', marginBottom : '25px', color: '#1B3C74'}}>Read Our Latest News</p>
 
         <div style={{display : 'grid' , gridTemplateColumns : '1fr 1fr 1fr', gap :'16px'}}>
             <div style={{border : '1px solid lightgray', width: '363px', borderRadius : '8px'}}>

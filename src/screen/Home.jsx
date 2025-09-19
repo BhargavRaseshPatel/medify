@@ -31,7 +31,7 @@ const Home = () => {
                     <p style={{ fontWeight: 'bolder', fontSize: '55px', marginBottom: '16px' }}>
                         Medical <span style={{ color: '#2AA8FF' }}>Centers</span>
                     </p>
-                    <p style={{ fontSize: '20px', marginBottom: '16px' }}>
+                    <p style={{ fontSize: '20px', marginBottom: '16px', color:'#5C6169' }}>
                         Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
                     </p>
 

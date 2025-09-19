@@ -4,7 +4,7 @@ const AskedQuestion = () => {
     return (
         <div style={{ height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <p style={{ color: '#2AA7FF', fontSize: '16px', textAlign: 'center' }}>Get Your Answer</p>
-            <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px' }}>Frequently Asked Questions</p>
+            <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px' ,color : '#1B3C74'}}>Frequently Asked Questions</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
 
