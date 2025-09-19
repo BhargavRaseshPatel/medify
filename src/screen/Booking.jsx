@@ -7,7 +7,7 @@ const Booking = () => {
   const [bookingData, setBookingData] = useState([])
 
   useEffect(() => {
-    const data = (JSON.parse(localStorage.getItem('booking')))
+    const data = (JSON.parse(localStorage.getItem('bookings')))
     setBookingData(data)
   }, [])
 
@@ -33,10 +33,10 @@ const Booking = () => {
                     <img src='medicalcenter.svg' style={{ width: '140px', height: "140px" }} />
 
                     <div style={{ height: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '24px', gap: '18px', marginTop: '24px' }}>
-                      <p style={{ color: '#14BEF0', fontSize: '20px', whiteSpace: 'nowrap' }}>{data['Hospital Name'].toLowerCase()
+                      <h3 style={{ color: '#14BEF0', fontSize: '20px', whiteSpace: 'nowrap' }}>{data['Hospital Name'].toLowerCase()
                         .split(' ')
                         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join(' ')}</p>
+                        .join(' ')}</h3>
                       <div>
                         <p style={{ fontWeight: 'bolder' }}>{data['State']}, {data['City'].charAt(0) + data['City'].slice(1).toLowerCase()}</p>
                         <p style={{ color: '#414146', fontSize: '14px' }}>Smilessence Center for Advanced Dentistry + 1 more</p>
