@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Button from './ui/Button'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import SelectTime from './SelectTime';
-import { Navigation } from 'swiper/modules';
 import NavigationButton from './NavigationButton';
 import TabList from '@mui/lab/TabList';
 import { Box, Tab } from '@mui/material';
 import { TabContext, TabPanel } from '@mui/lab';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import './styles.css';
+
+// import required modules
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+
+
 
 const MedicalCenterCard = ({ data }) => {
     const [bookVisit, setBookVisit] = useState(false)
@@ -15,7 +26,7 @@ const MedicalCenterCard = ({ data }) => {
     const [selectedDate, setSelectedDate] = useState(new Date().toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "long",
-        year : 'numeric'
+        year: 'numeric'
     }));
     const [selectedTime, setSelectedTime] = useState('')
 
@@ -26,14 +37,14 @@ const MedicalCenterCard = ({ data }) => {
         return d;
     });
 
-    const handleChange = (event, newValue) => {
+    const handleChange = ( newValue) => {
         const date = new Date();
         const newDate = new Date(date.setDate(date.getDate() + parseInt(newValue)));
         setTabValue(newValue);
         setSelectedDate(newDate.toLocaleDateString("en-GB", {
             day: "2-digit",
             month: "long",
-            year : 'numeric'
+            year: 'numeric'
         }));
     };
 
@@ -79,7 +90,7 @@ const MedicalCenterCard = ({ data }) => {
                     <div style={{ position: 'absolute', bottom: '0px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <p style={{ color: "#01A400", textAlign: 'center' }}>Available Today</p>
                         <div style={{ marginBottom: '16px', marginTop: '8px' }}>
-                            <Button name={ bookVisit ? 'Hide Booking Center' :'Book FREE Center Visit'} width={'100%'} onClick={() => setBookVisit(!bookVisit)} />
+                            <Button name={bookVisit ? 'Hide Booking Center' : 'Book FREE Center Visit'} width={'100%'} onClick={() => setBookVisit(!bookVisit)} />
                         </div>
                     </div>
                 </div>
@@ -93,42 +104,38 @@ const MedicalCenterCard = ({ data }) => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                    }}
-                >
-                    <TabContext value={tabValue}>
-                        <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
-                            <TabList
-                                onChange={handleChange}
-                                aria-label="scrollable tabs"
-                                variant="scrollable"
-                                scrollButtons="auto"
-                                allowScrollButtonsMobile
-                            >
-                                {next7Days.map((date, index) => {
-                                    const label =
-                                        index === 0
-                                            ? "Today"
-                                            : index === 1
-                                                ? "Tomorrow"
-                                                : date.toLocaleDateString("en-GB", {
-                                                    weekday: "short",
-                                                    day: "2-digit",
-                                                    month: "short",
-                                                });
-                                    return <Tab key={index} label={label} value={String(index)} />;
-                                })}
-                            </TabList>
-                        </Box>
+                        position: 'relative'
+                    }}>
 
-                        {next7Days.map((date, index) => (
-                            <TabPanel key={index} value={String(index)}>
-                                <div style={{ height: '150px', marginTop: '32px' }}>
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        style={{ height: '100px', display : 'flex', justifyContent : 'center' }}
+                        modules={[Navigation, Mousewheel, Keyboard]}
+                        className="mySwiper"
+                    >
+                            {next7Days.map((date, index) => {
+                                const label = index === 0 ? "Today" : index === 1 ? "Tomorrow" : date.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short" });
+                                return (
+                                    <SwiperSlide key={index} style={{width : '200px'}}>
+                                        <div style={{ borderBottom: `1px solid ${tabValue == index ? '#2AA7FF' : '#F0F0F5' }`, width: '100%', padding: '4px' }} onClick={() => {handleChange(index); setTabValue(index); console.log('click') }}>
+                                            {label}
+                                            <p style={{ color: '#01A400', fontSize: '12px', marginTop: '8px' }}>10 Slots Available</p>
+                                        </div>
+                                    </SwiperSlide>
+                                );
+                            })}
+                        <NavigationButton />
+                    </Swiper>
 
-                                    <SelectTime selectedTime={(time) => {setSelectedTime(time); localStorageStore()}} time={selectedTime} />
-                                </div>
-                            </TabPanel>
-                        ))}
-                    </TabContext>
+
+                    <div style={{}}>
+                        <SelectTime selectedTime={(time) => { setSelectedTime(time); localStorageStore() }} time={selectedTime} />
+                    </div>
+
 
                 </div>
             )}

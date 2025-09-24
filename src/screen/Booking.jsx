@@ -11,6 +11,12 @@ const Booking = () => {
     setBookingData(data)
   }, [])
 
+  const handleChangeText = (e) => {
+    const data = (JSON.parse(localStorage.getItem('bookings')))
+    const searchedData = data.filter((data) => data['Hospital Name'].toLowerCase().includes(e.target.value))
+    setBookingData(searchedData)
+  }
+
   return (
     <div style={{ position: "relative" }}>
       <div style={{ backgroundColor: '#2AA7FF', height: "110px", display: 'flex', alignItems: 'center', paddingLeft: '80px' }}>
@@ -21,15 +27,15 @@ const Booking = () => {
         position: 'absolute', minWidth: '780px', height: '104px', top: '48px', display: 'flex', right: '80px',
         justifyContent: 'center', alignItems: 'center', gap: '48px', backgroundColor: 'white', borderRadius: '18px'
       }}>
-        <InputField placeholder={'Search By Hospital'} width={'545px'} />
+        <InputField placeholder={'Search By Hospital'} width={'545px'} onChange={handleChangeText} />
         <Button name={'Search'} />
       </div>
       <div style={{ backgroundColor: '#EFF5FE', display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '128px' }}>
 
         <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: "78px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {bookingData?.map((data) => (
-              <div style={{ width: '785px', display: 'flex', backgroundColor: 'white', borderRadius: '15px', flexDirection: 'column' }}>
+            {bookingData?.map((data, index) => (
+              <div key={index} style={{ width: '785px', display: 'flex', backgroundColor: 'white', borderRadius: '15px', flexDirection: 'column' }}>
                 <div style={{ display: 'flex' }}>
                   <div style={{ width: '487px', minWidth: '487px', height: '220px', display: 'flex', alignItems: 'center', marginLeft: "24px" }}>
                     <img src='medicalcenter.svg' style={{ width: '140px', height: "140px" }} />
