@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const Header = () => {
     const navigate = useNavigate()
     const currentUrl = window.location.pathname.split('/')[1];
-    console.log('Current URL:', currentUrl);
+    // console.log('Current URL:', currentUrl);
 
     const handleBooking = () => {
         navigate('/my-bookings')

@@ -26,10 +26,6 @@ const MedicalCenterCard = ({ data }) => {
         return d;
     });
 
-    useEffect(() => {
-        console.log(data)
-    }, [])
-
     const handleChange = (event, newValue) => {
         const date = new Date();
         const newDate = new Date(date.setDate(date.getDate() + parseInt(newValue)));
@@ -41,17 +37,13 @@ const MedicalCenterCard = ({ data }) => {
         }));
     };
 
-    useEffect(() => {
-        console.log(selectedDate)
-    }, [selectedDate])
-
     const localStorageStore = () => {
-        const localStorageData = Array.isArray(JSON.parse(localStorage.getItem('booking'))) ? JSON.parse(localStorage.getItem('booking')) : [];
-        data.Date = selectedDate;
-        data.Time = selectedTime;
+        const localStorageData = Array.isArray(JSON.parse(localStorage.getItem('bookings'))) ? JSON.parse(localStorage.getItem('bookings')) : [];
+        data.bookingDate = selectedDate;
+        data.bookingTime = selectedTime;
 
         localStorageData.push(data);
-        localStorage.setItem('booking', JSON.stringify(localStorageData));
+        localStorage.setItem('bookings', JSON.stringify(localStorageData));
     }
 
 

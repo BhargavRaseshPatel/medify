@@ -1,6 +1,8 @@
 import Card from "../components/HomeComponents/Card"
+import CarouselSlide from "../components/HomeComponents/CarouselSlide"
 import HomeSearch from "../components/HomeComponents/HomeSearch"
 import LatestNews from "../components/HomeComponents/LatestNews"
+import MedicalSpecialist from "../components/HomeComponents/MedicalSpecialist"
 import PatientCaring from "../components/HomeComponents/PatientCaring"
 import State from "../components/HomeComponents/State"
 import Button from "../components/ui/Button"
@@ -8,7 +10,7 @@ import Button from "../components/ui/Button"
 const Home = () => {
     const lookingComponents = [{ image: 'doctors.svg', name: 'Doctors' },
     { image: 'labs.svg', name: 'Labs' },
-    { image: 'hospitals.svg', name: 'Hospitals' },
+    { image: 'hospitals.svg', name: 'Hospitals', selected: true },
     { image: 'medical.svg', name: 'Medical Store' },
     { image: 'ambulance.svg', name: 'Ambulance' }
     ]
@@ -31,7 +33,7 @@ const Home = () => {
                     <p style={{ fontWeight: 'bolder', fontSize: '55px', marginBottom: '16px' }}>
                         Medical <span style={{ color: '#2AA8FF' }}>Centers</span>
                     </p>
-                    <p style={{ fontSize: '20px', marginBottom: '16px', color:'#5C6169' }}>
+                    <p style={{ fontSize: '20px', marginBottom: '16px', color: '#5C6169' }}>
                         Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
                     </p>
 
@@ -53,16 +55,20 @@ const Home = () => {
 
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "24px", gap: '16px' }}>
                         {lookingComponents.map((data, key) => (
-                            <Card key={key} image={data.image} name={data.name} bgColor={'#FAFBFE'} />
+                            <Card key={key} image={data.image} name={data.name} bgColor={'#FAFBFE'} selected={data.selected} />
                         ))}
                     </div>
                 </div>
             </div>
+            
+            <div style={{marginTop : '-96px'}}>
+                <CarouselSlide />
+            </div>
 
             <div style={{ height: '600px', backgroundColor: '#E7F0FF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px' }}>Find By Specialisation</p>
+                <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px', fontWeight: 'normal', color: '#1B3C74', fontWeight : 'bold' }}>Find By Specialisation</p>
 
-                <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: '1fr 1fr 1fr 1fr' }}>
+                <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: '1fr 1fr 1fr 1fr', marginTop: '24px' }}>
                     {specialComponents.map((data, index) => (
                         <Card image={data.image} key={index} name={data.name} />
                     ))}
@@ -71,6 +77,10 @@ const Home = () => {
                 <div style={{ marginTop: '25px' }}>
                     <Button name={'View All'} />
                 </div>
+            </div>
+
+            <div style={{height : '800px', display : 'flex', justifyContent : 'center', alignItems : 'center'}}>
+                <MedicalSpecialist />
             </div>
 
             <div style={{ height: '600px', backgroundColor: '#E7F0FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

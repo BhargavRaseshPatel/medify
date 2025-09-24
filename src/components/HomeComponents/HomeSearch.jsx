@@ -14,8 +14,6 @@ const HomeSearch = () => {
     const [cities, setCities] = useState([])
     const [selectedState, setSelectedState] = useState('')
     const [selectedCities, setSelectedCities] = useState('')
-    const [medicalCenter, setMedicalCenter] = useState([])
-    // const navigate = useNavigate()
 
     useEffect(() => {
         const fetchStates = async () => {
@@ -38,23 +36,9 @@ const HomeSearch = () => {
         setSelectedCities(event.target.value)
     }
 
-    const searchMedicalCenters = () => {
-        const fetchMedicalCenters = async () => {
-            try {
-                const response = await fetch(`https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCities}`);
-                const data = await response.json();
-                setMedicalCenter(data);
-            } catch (error) {
-                console.error("Error fetching medical centers:", error);
-            }
-        };
-        // navigate(`find-doctor?state=${selectedState},city=${selectedCities}`)
-
-        fetchMedicalCenters();
-    }
     const navigate = useNavigate();
-    const handleSubmit = (e) => {
 
+    const handleSubmit = (e) => {
         e.preventDefault();
         navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
 
@@ -68,50 +52,6 @@ const HomeSearch = () => {
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
                     <div id="state" style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                       
-
-                        {/* <Select
-                            id="state"
-                            value={selectedState}
-                            onChange={handleState}
-                            displayEmpty
-                            sx={{ minWidth: 200 }}
-                            // name="state"
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <IoLocationOutline style={{ fontSize: "20px" }} />
-                                </InputAdornment>
-                            }
-                        >
-                            <MenuItem disabled value="">Select State</MenuItem>
-                            {states.map((state, index) => (
-                                <MenuItem key={index} value={state}>{state}</MenuItem>
-                            ))}
-                        </Select> */}
-
-                        {/* <Select
-                            id="state"
-                            value={selectedState}
-                            onChange={handleState}
-                            displayEmpty
-                        >
-                            <MenuItem disabled value="">Select State</MenuItem>
-                            {states.map((state, index) => (
-                                <MenuItem key={index} value={state}>{state}</MenuItem>
-                            ))}
-                        </Select>
-
-                        <Select
-                            id="city"
-                            value={selectedCities}
-                            onChange={handleCities}
-                            displayEmpty
-                        >
-                            <MenuItem disabled value="">Select City</MenuItem>
-                            {cities.map((city, index) => (
-                                <MenuItem key={index} value={city}>{city}</MenuItem>
-                            ))}
-                        </Select> */}
 
                         <Select
                             value={selectedState}

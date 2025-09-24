@@ -3,7 +3,7 @@ import Button from '../ui/Button'
 
 const AppDownload = () => {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '450px', backgroundColor: '#E7F0FF', paddingTop: '48px', overflow :'hidden' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '450px', backgroundColor: '#E7F0FF', paddingTop: '48px', overflow: 'hidden' }}>
 
       <div>
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', marginRight: '200px', zIndex: 2 }}>
@@ -17,23 +17,24 @@ const AppDownload = () => {
         </div>
       </div>
 
-      <div style={{ marginRight: '150px', height:"100%", marginLeft: '80px', display: 'flex', flexDirection : 'column', justifyContent : 'center' }}>
-        <p style={{ fontSize: '48px', width: '400px', marginBottom: '25px' }}>Download the Medify App</p>
+      <div style={{ marginRight: '150px', height: "100%", marginLeft: '80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <p style={{ fontSize: '48px', width: '400px', marginBottom: '25px', color: '#1B3C74', fontWeight: 'bold' }}>Download the 
+          <span style={{color: '#2AA7FF'}}> Medify</span> App</p>
         <p>Get the link to download the app</p>
-        
-        <div style={{ display: 'flex' , marginTop : '18px' }}>
-          <div style={{ width: '391px', height: '49px', display: 'flex', backgroundColor: 'white',borderRadius : '8px' }}>
-            <div style={{width : '55px' , height : '47px', display : 'flex' , alignItems : 'center', justifyContent : 'center', borderRight : '1px solid black'}}>
+
+        <div style={{ display: 'flex', marginTop: '18px' }}>
+          <div style={{ width: '391px', height: '49px', display: 'flex', backgroundColor: 'white', borderRadius: '8px' }}>
+            <div style={{ width: '55px', height: '47px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid #B4B4BE4D' }}>
               +91
             </div>
-            <input type="text" name="" id="" style={{width : '100%', height : '100%', border : '0px', borderRadius : '8px', paddingLeft : '24px'}} placeholder='Enter phone number' />
+            <input type="text" name="" id="" style={{ width: '100%', height: '100%', border: '0px', borderRadius: '8px', paddingLeft: '24px' }} placeholder='Enter phone number' />
           </div>
           <div style={{ width: '150px', display: 'flex', justifyContent: 'flex-end' }}>
-            <Button name={'Send SMS'} height={'100%'} fontSize={'16px'}/>
+            <Button name={'Send SMS'} style={{height:'100%'}} fontSize={'16px'} />
           </div>
         </div>
 
-        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems :'center' }}>
+        <div style={{ width: '100%', display: 'flex', marginTop : '24px', alignItems: 'center' }}>
           <img src='play_store.svg' width={'224px'} height={'70px'} />
           <img src='app_store.svg' width={'224px'} height={'70px'} style={{ marginLeft: '24px' }} />
         </div>

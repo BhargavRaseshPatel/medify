@@ -7,24 +7,26 @@ const Booking = () => {
   const [bookingData, setBookingData] = useState([])
 
   useEffect(() => {
-    const data = (JSON.parse(localStorage.getItem('booking')))
+    const data = (JSON.parse(localStorage.getItem('bookings')))
     setBookingData(data)
   }, [])
 
   return (
-    <div style={{position :"relative"}}>
+    <div style={{ position: "relative" }}>
       <div style={{ backgroundColor: '#2AA7FF', height: "110px", display: 'flex', alignItems: 'center', paddingLeft: '80px' }}>
         <h1 style={{ color: 'white', fontSize: '40px', width: '400px', textAlign: 'center', width: '400px' }}>My Bookings</h1>
       </div>
 
-      <div style={{position : 'absolute', minWidth : '780px' , height : '104px', top: '48px', display : 'flex', right: '80px',
-        justifyContent : 'center', alignItems : 'center', gap :'48px', backgroundColor : 'white', borderRadius : '18px'}}>
-        <InputField placeholder={'Search By Hospital'} width={'545px'}/>
-        <Button name={'Search'}/>
+      <div style={{
+        position: 'absolute', minWidth: '780px', height: '104px', top: '48px', display: 'flex', right: '80px',
+        justifyContent: 'center', alignItems: 'center', gap: '48px', backgroundColor: 'white', borderRadius: '18px'
+      }}>
+        <InputField placeholder={'Search By Hospital'} width={'545px'} />
+        <Button name={'Search'} />
       </div>
       <div style={{ backgroundColor: '#EFF5FE', display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '128px' }}>
 
-        <div style={{ display: 'flex', gap: '24px', justifyContent : 'center', marginTop : "78px" }}>
+        <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: "78px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {bookingData?.map((data) => (
               <div style={{ width: '785px', display: 'flex', backgroundColor: 'white', borderRadius: '15px', flexDirection: 'column' }}>
@@ -33,10 +35,10 @@ const Booking = () => {
                     <img src='medicalcenter.svg' style={{ width: '140px', height: "140px" }} />
 
                     <div style={{ height: '220px', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '24px', gap: '18px', marginTop: '24px' }}>
-                      <p style={{ color: '#14BEF0', fontSize: '20px', whiteSpace: 'nowrap' }}>{data['Hospital Name'].toLowerCase()
+                      <h3 style={{ color: '#14BEF0', fontSize: '20px', whiteSpace: 'nowrap' }}>{data['Hospital Name'].toLowerCase()
                         .split(' ')
-                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join(' ')}</p>
+                        .map(word => word.toLowerCase())
+                        .join(' ')}</h3>
                       <div>
                         <p style={{ fontWeight: 'bolder' }}>{data['State']}, {data['City'].charAt(0) + data['City'].slice(1).toLowerCase()}</p>
                         <p style={{ color: '#414146', fontSize: '14px' }}>Smilessence Center for Advanced Dentistry + 1 more</p>
@@ -53,14 +55,14 @@ const Booking = () => {
                       }
                     </div>
                   </div>
-                  
+
                   <div style={{ width: '276px', height: '220px', margin: '24px', position: 'relative' }}>
                     <div style={{ position: 'absolute', top: '0px', width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                       <div style={{ width: '84px', border: "1px solid #2AA7FF", color: "#2AA7FF", display: 'flex', justifyContent: 'center', paddingTop: '4px', paddingBottom: '4px', borderRadius: '4px' }}>
-                        <p >{data.Time}</p>
+                        <p>{data.bookingTime}</p>
                       </div>
                       <div style={{ width: '168px', border: "1px solid #00A500", color: "#00A500", display: 'flex', justifyContent: 'center', marginLeft: '8px', paddingTop: '4px', paddingBottom: '4px', borderRadius: '4px' }}>
-                        <p >{data.Date}</p>
+                        <p>{data.bookingDate}</p>
                       </div>
                     </div>
                   </div>

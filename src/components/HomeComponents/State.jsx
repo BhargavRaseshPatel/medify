@@ -6,8 +6,8 @@ const State = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width : '100%', gap : '24px' }}>
             <div style={{display : 'flex', justifyContent :'center', flexDirection : 'column'}}>
                 <p style={{color : '#2AA7FF', fontWeight : 'bold'}}>CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.</p>
-                <p style={{fontSize : '48px', color: '#1B3C74'}}>Our Families</p>
-                <p style={{color : 'gray'}}>We will work with you to develop individualised care plans, including management of chronic diseases. If we cannot assist, we can provide referrals or advice about the type of practitioner you require. We treat all enquiries sensitively and in the strictest confidence.</p>
+                <p style={{fontSize : '48px', color: '#1B3C74', fontWeight : 'bold'}}>Our Families</p>
+                <p style={{color : 'gray', lineHeight : '3', fontSize : '18px'}}>We will work with you to develop individualised care plans, including management of chronic diseases. If we cannot assist, we can provide referrals or advice about the type of practitioner you require. We treat all enquiries sensitively and in the strictest confidence.</p>
             </div>
 
             <div style={{  display: 'grid', gridTemplateColumns : '1fr 1fr'}}>

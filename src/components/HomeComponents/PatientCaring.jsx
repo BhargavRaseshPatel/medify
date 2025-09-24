@@ -19,8 +19,8 @@ const PatientCaring = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                 <p style={{ color: '#2AA7FF' }}>HELPING PATIENTS FROM AROUND THE GLOBE!!</p>
-                <p style={{ fontSize: '48px' }}>Patient <span style={{ color: '#2AA7FF' }}>Caring</span></p>
-                <p style={{ fontSize: '18px', color: '#77829D' }}>Our goal is to deliver quality of care in a courteous, respectful, and compassionate manner. We hope you will allow us to care for you and strive to be the first and best choice for healthcare.</p>
+                <p style={{ fontSize: '48px', marginTop :'-8px' }}>Patient <span style={{ color: '#2AA7FF' }}>Caring</span></p>
+                <p style={{ fontSize: '18px', color: '#77829D', lineHeight: "1.8" }}>Our goal is to deliver quality of care in a courteous, respectful, and compassionate manner. We hope you will allow us to care for you and strive to be the first and best choice for healthcare.</p>
 
                 <div style={{ display: 'flex' }}>
                     <img src="list-item.svg" alt="" />
