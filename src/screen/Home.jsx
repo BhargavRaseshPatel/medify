@@ -66,7 +66,7 @@ const Home = () => {
             </div>
 
             <div style={{ height: '600px', backgroundColor: '#E7F0FF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px', fontWeight: 'normal', color: '#1B3C74', fontWeight : 'bold' }}>Find By Specialisation</p>
+                <p style={{ fontSize: '48px', textAlign: 'center', marginBottom: '25px', color: '#1B3C74', fontWeight : 'bold' }}>Find By Specialisation</p>
 
                 <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: '1fr 1fr 1fr 1fr', marginTop: '24px' }}>
                     {specialComponents.map((data, index) => (

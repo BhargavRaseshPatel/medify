@@ -14,7 +14,7 @@ const Booking = () => {
   return (
     <div style={{ position: "relative" }}>
       <div style={{ backgroundColor: '#2AA7FF', height: "110px", display: 'flex', alignItems: 'center', paddingLeft: '80px' }}>
-        <h1 style={{ color: 'white', fontSize: '40px', width: '400px', textAlign: 'center', width: '400px' }}>My Bookings</h1>
+        <h1 style={{ color: 'white', fontSize: '40px', width: '400px', textAlign: 'center'}}>My Bookings</h1>
       </div>
 
       <div style={{
