@@ -37,7 +37,7 @@ const Home = () => {
                         Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
                     </p>
 
-                    <Button name={'Find Centers'} />
+                    <Button name={'Find Centers'} style={{width : '177px', height : '48px'}}/>
                 </div>
                 <div style={{ width: '100%', marginTop: '-100px' }}>
                     <img src="homeimage.svg" />

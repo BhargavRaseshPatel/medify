@@ -1,8 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import Button from "../ui/Button";
-import InputField from "../ui/InputField";
 import { useEffect, useState } from "react";
-import { IoLocationOutline } from "react-icons/io5";
 import { InputAdornment, MenuItem, Select } from "@mui/material";
 import { useNavigate, useRoutes } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
@@ -39,8 +37,11 @@ const HomeSearch = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
+
+        if (selectedCities && selectedState) {
+            e.preventDefault();
+            navigate(`/find-doctor?state=${selectedState}&city=${selectedCities}`);
+        }
 
     }
     return (
@@ -48,10 +49,10 @@ const HomeSearch = () => {
 
             handleSubmit(e);
         }}>
-            <div style={{ width: '1166px', display: 'flex', gap: '24px',  borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
+            <div style={{ width: '1166px', display: 'flex', gap: '24px', borderRadius: '15px', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', marginTop: '48px' }}>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
-                    <div id="state" style={{ width: "326px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <div id="state" style={{ width: "326px", height: '50px', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
 
                         <Select
                             value={selectedState}
@@ -78,17 +79,17 @@ const HomeSearch = () => {
                 </div>
 
                 <div style={{ height: '111px', display: 'flex', alignItems: 'center', gap: '24px', color: '#9CA3AF' }}>
-                    <div id="city" style={{ width: "522px", height: '50px', border: '1px solid #F0F0F0', backgroundColor: '#FAFBFE', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <div id="city" style={{ width: "522px", height: '50px', padding: '8px', borderRadius: '8px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
 
                         <Select
                             value={selectedCities}
                             onChange={handleCities}
                             displayEmpty
-                            sx={{  minWidth: '100%' }}
+                            sx={{ minWidth: '100%' }}
                             // name="city"
                             startAdornment={
                                 <InputAdornment position="start">
-                                   <IoSearchOutline style={{ fontSize: "20px" }} />
+                                    <IoSearchOutline style={{ fontSize: "20px" }} />
                                 </InputAdornment>
                             }
                         >
@@ -100,7 +101,7 @@ const HomeSearch = () => {
                     </div>
                 </div>
 
-                <Button id={'searchBtn'} name={'Search'} method="post" />
+                <Button id={'searchBtn'} name={'Search'} icon={<FaSearch size={'20px'} color="white" />} method="post" />
 
             </div >
         </form>
